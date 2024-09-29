@@ -1,7 +1,7 @@
 import { request } from "express"
 
- const asyncHandler=(requestHandler)=>{
-    (req,res,next)=>{
+ export const asyncHandler=(requestHandler)=>{
+   return (req,res,next)=>{
         Promise.resolve(requestHandler(req,res,next)).catch((err)=>next(err))
     }
  }
@@ -9,7 +9,7 @@ import { request } from "express"
 
 
 
- export {asyncHandler}  
+
 // const asyncHandler=(fn)=>async(req,res,next)=>{
 //     try{
 
